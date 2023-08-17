@@ -1,0 +1,68 @@
+name: "Upload folder"
+description: "Upload folder content to Devops Config"
+inputs:
+  instance-url:
+    description: "ServiceNow instance"
+    required: true
+  devops-integration-user-name:
+    description: "ServiceNow username"
+    required: true
+  devops-integration-user-password:
+    description: "ServiceNow password"
+    required: true
+  application:
+    description: "Devops Config application"
+    required: true
+  target:
+    description: "Devops Config object against which to upload (component|collection|deployable)"
+    required: true
+  target-name:
+    description: "Name of the collection or deployable against which to upload"
+    required: false
+  folder-path:
+    description: "Folder from where to upload files"
+    required: true
+  recursive:
+    description: "Traverse folder recursively (true|false)"
+    required: true
+    default: false
+  data-format:
+    description: "File format to upload"
+    required: true
+  auto-commit:
+    description: "Commit changeset (true|false)"
+    required: true
+    default: true
+  auto-validate:
+    description: "Validate after upload (true|false)"
+    required: true
+    default: true
+  publish-option:
+    description: "Publish after successful validation (publish_none|publish_valid)"
+    required: true
+    default: "publish_valid"
+  name-path:
+    description: "Path against which to upload in Devops Config Data Model"
+    required: false
+outputs:
+  changeset:
+    description: "Changeset used for this upload"
+  validation:
+    description: "Validation status for the upload"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.instance-url }}
+    - ${{ inputs.devops-integration-user-name }}
+    - ${{ inputs.devops-integration-user-password }}
+    - ${{ inputs.application }}
+    - ${{ inputs.target }}
+    - ${{ inputs.target-name }}
+    - ${{ inputs.folder-path }}
+    - ${{ inputs.recursive }}
+    - ${{ inputs.data-format }}
+    - ${{ inputs.auto-commit }}
+    - ${{ inputs.auto-validate }}
+    - ${{ inputs.publish-option }}
+    - ${{ inputs.name-path }}
