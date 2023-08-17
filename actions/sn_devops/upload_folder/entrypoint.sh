@@ -143,7 +143,7 @@ function tfconvert()
 {
 echo "Converting $1 to json for upload"
 sed -ie '/^[ \t]*#/d' $1 #removing comments
-./yj -cj < $1 >temp.json
+/yj -cj < $1 >temp.json
 cp temp.json $1
 }
 
