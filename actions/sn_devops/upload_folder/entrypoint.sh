@@ -139,6 +139,10 @@ function upload()
   check_upload_status ${upload_id}
 }
 
+function tfcpnvert()
+{
+echo "Converting $1  to json for upload"
+}
 declare sn_instance=$1
 declare sn_user=$2
 declare sn_password=$3
@@ -157,6 +161,9 @@ changeset=$(create_changeset $4)
 
 for file in ${files[@]}; do
   echo ${file}
+    if [[ $3 == "tf" ]]; then
+    tfconvert $file
+    fi
   file_path=$(echo ${file}|sed -r 's/^\.\///'|sed -r 's/\//%2F/g')
   name_path="${13}${file_path}"
   upload $5 $6 $4 $9 ${12} ${file} ${changeset} ${name_path}
