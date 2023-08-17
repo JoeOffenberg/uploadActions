@@ -1,0 +1,33 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: test upload with TF
+
+on:
+  workflow_dispatch:
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    name: Upload file to Devops Config
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload data
+        uses: ./actions/sn_devops/upload_folder # Uses an action in the root directory
+        id: upload
+        with:
+          instance-url: ${{ secrets.SN_INSTANCE }}
+          devops-integration-user-name: ${{ secrets.SN_USER }}
+          devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
+          application: "Globex-Website-Front-End"
+          target: "component"
+          folder-path: "infra"
+          recursive: true
+          data-format: "json"
+          auto-validate: true
+          publish-option: "publish_valid"
+          name-path: ""
+      # Use the output from the `hello` step
+      - name: Get the changeset number
+        run: echo "Changeset number ${{ steps.upload.outputs.changeset }}"
