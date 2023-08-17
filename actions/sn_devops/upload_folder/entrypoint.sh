@@ -143,7 +143,7 @@ function tfconvert()
 {
 echo "Converting $1 to json for upload"
 sed -ie '/^[ \t]*#/d' $1 #removing comments
-./yj-linux-amd64 -cj < $1 >temp.json
+./yj -cj < $1 >temp.json
 cp temp.json $1
 }
 
@@ -168,11 +168,13 @@ for file in ${files[@]}; do
   echo ${file}
     if [[ $9 == "tf" ]]; then
     tfconvert $file
-    $9="json"
+    format="json"
+    else
+    format=$9
     fi
   file_path=$(echo ${file}|sed -r 's/^\.\///'|sed -r 's/\//%2F/g')
   name_path="${13}${file_path}"
-  upload $5 $6 $4 $9 ${12} ${file} ${changeset} ${name_path}
+  upload $5 $6 $4 ${format} ${12} ${file} ${changeset} ${name_path}
 done
 
 if [[ ${10} == "true" ]]; then
