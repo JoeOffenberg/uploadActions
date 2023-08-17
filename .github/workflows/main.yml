@@ -22,9 +22,9 @@ jobs:
           devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
           application: "Globex-Website-Front-End"
           target: "component"
-          folder-path: "infra"
+          folder-path: "terraform"
           recursive: true
-          data-format: "json"
+          data-format: "tf"
           auto-validate: true
           publish-option: "publish_valid"
           name-path: ""
