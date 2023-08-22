@@ -24,7 +24,7 @@ jobs:
           target: "component"
           folder-path: "terraform"
           recursive: true
-          data-format: "tfvars"
+          data-format: "json"
           auto-validate: true
           publish-option: "publish_valid"
           name-path: ""
