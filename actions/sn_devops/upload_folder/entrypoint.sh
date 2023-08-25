@@ -174,6 +174,8 @@ for file in ${files[@]}; do
     fi
   file_path=$(echo ${file}|sed -r 's/^\.\///'|sed -r 's/\//%2F/g')
   name_path="${13}${file_path}"
+  cat $file
+  echo ${format}
   upload $5 $6 $4 ${format} ${12} ${file} ${changeset} ${name_path}
 done
 
