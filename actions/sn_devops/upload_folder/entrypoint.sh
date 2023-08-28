@@ -166,7 +166,7 @@ changeset=$(create_changeset $4)
 
 for file in ${files[@]}; do
   echo ${file}
-    if [[ $9 == "tfvars" ]|[ $9 == "tf"]]; then
+    if [ $9 == "tfvars" ]||[ $9 == "tf"]; then
     tfconvert $file
     format="json"
     else
