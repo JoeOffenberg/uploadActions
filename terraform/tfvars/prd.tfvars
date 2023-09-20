@@ -4,5 +4,5 @@
 bucket_name_suffix = "default"
 vpc_id = "vpc-063d6xxxxxxxxxxxx"
 ssh_keyname = "ireland-key"
-subnet_id = "subnet-04b4xxxxxxxxxxxxx"
+subnet_id = "subnet-04b5xxxxxxxxxxxxx"
 db_context = "https://ppr.fre3fr.de"
