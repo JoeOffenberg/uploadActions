@@ -29,6 +29,14 @@ resource "aws_security_group" "mysg" {
         cidr_blocks = "[0.0.0.0/0]"
     }
 
+     ingress {
+        description = "Allow inbound LDAP traffic"
+        from_port = 3339
+        to_port = 3339
+        protocol = "tcp"
+        cidr_blocks = "[0.0.0.0/0]"
+    }
+
     tags = {
         name = "allow_ssh"
     }
