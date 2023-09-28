@@ -54,7 +54,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Build'
-          xml-report-filename: target/surefire-reports/testng-results.xml
+          xml-report-filename: target/junit-results.xml
   deploy:
     name: Deploy
     needs: validate
