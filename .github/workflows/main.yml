@@ -41,7 +41,7 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     name: tests
-    needs: upload
+    needs: [upload, build]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
