@@ -20,24 +20,24 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Upload data
-        uses: ./actions/sn_devops/upload_folder # Uses an action in the root directory
-        id: upload
-        with:
-          instance-url: ${{ secrets.SN_INSTANCE }}
-          devops-integration-user-name: ${{ secrets.SN_USER }}
-          devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
-          application: "Globex-Website-Front-End"
-          target: "component"
-          folder-path: "terraform"
-          recursive: true
-          data-format: "tf"
-          auto-validate: true
-          publish-option: "publish_valid"
-          name-path: ""
-      # Use the output from the `hello` step
-      - name: Get the changeset number
-        run: echo "Changeset number ${{ steps.upload.outputs.changeset }}"
+      # - name: Upload data
+      #   uses: ./actions/sn_devops/upload_folder # Uses an action in the root directory
+      #   id: upload
+      #   with:
+      #     instance-url: ${{ secrets.SN_INSTANCE }}
+      #     devops-integration-user-name: ${{ secrets.SN_USER }}
+      #     devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
+      #     application: "Globex-Website-Front-End"
+      #     target: "component"
+      #     folder-path: "terraform"
+      #     recursive: true
+      #     data-format: "tf"
+      #     auto-validate: true
+      #     publish-option: "publish_valid"
+      #     name-path: ""
+      # # Use the output from the `hello` step
+      # - name: Get the changeset number
+      #   run: echo "Changeset number ${{ steps.upload.outputs.changeset }}"
   validate:
     runs-on: ubuntu-latest
     name: tests
@@ -53,7 +53,7 @@ jobs:
           instance-url: ${{ secrets.SN_INSTANCE }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
-          job-name: 'Test'
+          job-name: 'tests'
           xml-report-filename: 'target'
   deploy:
     name: Deploy
