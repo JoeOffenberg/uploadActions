@@ -54,7 +54,7 @@ jobs:
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Test'
-          xml-report-filename: **/*.xml
+          xml-report-filename: '**/*.xml'
   deploy:
     name: Deploy
     needs: validate
