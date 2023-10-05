@@ -53,8 +53,8 @@ jobs:
           instance-url: ${{ secrets.SN_INSTANCE }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
-          job-name: 'Build'
-          xml-report-filename: target/junit-results.xml
+          job-name: 'Test'
+          xml-report-filename: target/*.*.xml
   deploy:
     name: Deploy
     needs: validate
