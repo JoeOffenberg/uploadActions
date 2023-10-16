@@ -31,8 +31,8 @@ resource "aws_security_group" "mysg" {
 
      ingress {
         description = "Allow inbound LDAP traffic"
-        from_port = 3436
-        to_port = 3436
+        from_port = 3437
+        to_port = 3437
         protocol = "tcp"
         cidr_blocks = "[0.0.0.0/0]"
     }
