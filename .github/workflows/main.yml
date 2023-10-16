@@ -63,9 +63,9 @@ jobs:
       - name: ServiceNow Change
         uses: ServiceNow/servicenow-devops-change@v2.0.0
         with:
-          devops-integration-user-name: ${{ secrets.SN_DEVOPS_USER }}
-          devops-integration-user-password: ${{ secrets.SN_DEVOPS_PASSWORD }}
-          instance-url: ${{ secrets.SN_INSTANCE_URL }}
+          devops-integration-user-name: ${{ secrets.SN_USER }}
+          devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
+          instance-url: ${{ secrets.SN_INSTANCE }}
           tool-id: ${{ secrets.SN_ORCHESTRATION_TOOL_ID }}
           context-github: ${{ toJSON(github) }}
           job-name: 'Deploy'
