@@ -29,9 +29,9 @@ jobs:
           devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
           application: "Globex-Website-Front-End"
           target: "component"
-          folder-path: "terraform"
+          folder-path: "Terraform_IaC"
           recursive: true
-          data-format: "tf"
+          data-format: "json"
           auto-validate: true
           publish-option: "publish_valid"
           name-path: ""
