@@ -31,7 +31,7 @@ jobs:
           target: "component"
           folder-path: "Terraform_IaC"
           recursive: true
-          data-format: "json"
+          data-format: "yaml"
           auto-validate: true
           publish-option: "publish_valid"
           name-path: ""
