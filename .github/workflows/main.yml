@@ -27,10 +27,10 @@ jobs:
           instance-url: ${{ secrets.SN_INSTANCE }}
           devops-integration-user-name: ${{ secrets.SN_USER }}
           devops-integration-user-password: ${{ secrets.SN_PASSWORD }}
-          application: "Globex-Website-Front-End"
+          application: "Terraform_IaC"
           target: "component"
-          folder-path: "Terraform_IaC"
-          recursive: true
+          folder-path: "terraform"
+          recursive: false
           data-format: "yaml"
           auto-validate: true
           publish-option: "publish_valid"
